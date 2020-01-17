@@ -10,5 +10,5 @@ app_name = 'shop'
 
 urlpatterns = [
     path('archives/<yyyy:year>/', views.archives_year),
-    path('ddd/', views.response_pillow_image),
+    #path('ddd/', views.response_pillow_image),
 ]

@@ -1,19 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import requests
+#import request
 from io import BytesIO
-from PIL import Image, ImageDraw, ImageFont
+#from PIL import Image, ImageDraw, ImageFont
 # Create your views here.
 
 def archives_year(request, year):
 
     return HttpResponse('{}년도에 대한 내용'.format(year))
 
-def response_pillow_image(request):
+'''def response_pillow_image(request):
     ttf_path = 'C:/Windows/Fonts/malgun.ttf'
 
     image_url = 'http://www.flowermeaning.com/flower-pics/Calla-Lily-Meaning.jpg'
-    res = requests.get(image_url)
+    res = request.get(image_url)
     io = BytesIO(res.content)
     io.seek(0)
 
@@ -32,4 +32,4 @@ def response_pillow_image(request):
 
     response = HttpResponse(content_type = 'image/png')
     canvas.save(response, format='PNG')
-    return response
+    return response '''
