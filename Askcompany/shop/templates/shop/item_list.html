@@ -1,15 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog for Ask Company</title>
-</head>
-<body>
-    <h1>Ask Company</h1>
-
+{% extends "shop/layout.html" %}
+{% block content %}
     <form action="" method="GET">
         <input type="text" name="q" value="{{q}}"/>
         <input type="submit" value="search" />
@@ -17,14 +7,17 @@
 
     <hr/>
 
+    <ul>
     {% for item in item_list %}
         <div>
+            <a href="/shop/{{item.pk}}/">
             <h3>{{item.name}}</h3>
+            </a>
             <h4>가격: {{item.price}}</h4>
             {% if item.desc %}
                 <p>{{item.desc}}</p>
             {% endif %}
         </div>
     {% endfor %}
-</body>
-</html>
+    </ul>
+{% endblock %}}
