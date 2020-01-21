@@ -1,6 +1,1 @@
-django==2.2.9
-django-extensions==2.2.6
-django-debug-toolbar=2.1
-jinja2
-django-jinja
-pillow
+-r reqs/prod_heroku.txt
