@@ -10,7 +10,6 @@
     <ul>
     {% for item in item_list %}
         <div>
-            <ul>
             <li>
                 <a href="{{item.get_absolute_url}}">
                 {{item.name}}
@@ -20,8 +19,10 @@
                 {{item.desc}}
                 {% endif %}
             </li>
-            </ul>
         </div>
     {% endfor %}
     </ul>
+
+    <hr/>
+    <a href="{% url "shop:item_new" %}">New Item<a/>
 {% endblock %}}
