@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import CreateView, UpdateView
 from .models import Item
+from .forms import ItemForm
+from django.views.generic import CreateView, UpdateView
 
 logger = logging.getLogger(__name__)  # __name__ => "shop.views"
 
@@ -64,7 +66,7 @@ def item_detail(request, pk):
     print('FILES :', request.FILES)
     return render(request, 'shop/item_form.html')'''
 
-def item_new(request, item = None):
+'''def item_new(request, item = None):
     error_list = []
     values = {}
 
@@ -110,8 +112,27 @@ def item_new(request, item = None):
     return render(request, 'shop/item_form.html', {
         'error_list' : error_list,
         'values' : values,
-    })
+    })'''
 
-def item_edit(request, pk):
+
+
+item_new = CreateView.as_view(model=Item, form_class=ItemForm)
+
+"""def item_new(request, item=None):
+    if request.method == 'POST':
+        form = ItemForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            item = form.save()
+            return redirect(item)
+    else:
+        form = ItemForm(instance=item)
+
+    return render(request, 'shop/item_form.html', {
+        'form':form,
+    })"""
+
+item_edit = UpdateView.as_view(model=Item, form_class=ItemForm)
+
+"""def item_edit(request, pk):
     item = get_object_or_404(Item, pk=pk)
-    return item_new(request, item)
+    return item_new(request, item)"""
