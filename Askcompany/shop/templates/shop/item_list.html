@@ -10,13 +10,17 @@
     <ul>
     {% for item in item_list %}
         <div>
-            <a href="/shop/{{item.pk}}/">
-            <h3>{{item.name}}</h3>
-            </a>
-            <h4>가격: {{item.price}}</h4>
-            {% if item.desc %}
-                <p>{{item.desc}}</p>
-            {% endif %}
+            <ul>
+            <li>
+                <a href="/shop/{{item.pk}}/">
+                {{item.name}}
+                </a>
+                {{item.price}}
+                {% if item.desc %}
+                {{item.desc}}
+                {% endif %}
+            </li>
+            </ul>
         </div>
     {% endfor %}
     </ul>
