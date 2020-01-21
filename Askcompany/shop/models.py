@@ -1,5 +1,6 @@
 from django.db import models
 from askcompany.utils import uuid_upload_to
+from django.urls import reverse
 
 # Create your models here.
 
@@ -17,3 +18,7 @@ class Item(models.Model):
 
     class Meta:
         ordering = ['id']       # -id 이면 역순순
+
+    def get_absolute_url(self):
+        return reverse("shop:item_detail", args=[self.pk])
+        # return reverse('shop:item_datil', kwargs={'pk':self.pk}}
